@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>✏️ Edit Task</h1>
+
+    <form action="/update/{{ task.id }}" method="POST">
+        <input type="text" name="content" value="{{ task.content }}" required>
+        <input type="date" name="due_date" value="{{ task.due_date }}">
+        <button type="submit">💾 Update</button>
+        <a href="/">Cancel</a>
+    </form>
+</body>
+</html>

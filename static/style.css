@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input, button, a {
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+form input[type="text"], form input[type="date"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li.task {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-actions a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.task-actions .delete {
+    color: red;
+}
+
+.overdue {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: #ddd;
+}
+
+.dark-mode .container {
+    background-color: #333;
+}
+
+.dark-mode input, .dark-mode button {
+    background-color: #555;
+    color: white;
+    border: 1px solid #666;
+}
+
+.export-btn {
+    display: inline-block;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+.search-form input[type="text"] {
+    width: 60%;
+}
+
+.search-form button {
+    background-color: #6c757d;
+}

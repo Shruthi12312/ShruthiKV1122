@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Task Manager</h1>
+            <button onclick="toggleDark()">🌗 Toggle Dark Mode</button>
+        </header>
+        
+        <form method="GET" action="/" class="search-form">
+            <input type="text" name="q" placeholder="Search tasks..." value="{{ request.args.get('q', '') }}">
+            <button type="submit">🔍 Search</button>
+        </form>
+
+        <a href="/export" class="export-btn">📤 Export Tasks</a>
+
+        <h2>Your Tasks</h2>
+        <form action="/add" method="POST">
+            <input type="text" name="task" placeholder="Add a new task..." required>
+            <input type="date" name="due_date">
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul>
+            {% for task in tasks %}
+                <li class="task {{ 'overdue' if task.due_date and task.due_date < today and task.status != 'Completed' else '' }}">
+                    <span>{{ task.content }} - Due: {{ task.due_date or 'N/A' }} - Status: {{ task.status }}</span>
+                    <div class="task-actions">
+                        <a href="/edit/{{ task.id }}">✏️ Edit</a>
+                        <a href="/complete/{{ task.id }}">✅ Complete</a>
+                        <a href="/delete/{{ task.id }}" class="delete">🗑️ Delete</a>
+                    </div>
+                </li>
+            {% else %}
+                <li>No tasks available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        function toggleDark() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
